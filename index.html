@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Project Showcase</title>
+    <title>Project Glumii</title>
+    
+    <link rel="icon" type="image/png" href="images/Glumii pic(circle).png">
+
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="templates/style.css">
 </head>
 <body>
@@ -105,18 +107,44 @@ Large Language Model (LLM), Blood Sugar Control, Conversational AI
             </div>
         </section>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
         <section id="workflow" class="reveal">
             <h2 class="section-title">WORKFLOW</h2>
-            
-            <div class="glass-card full-width-card" style="padding: 10px;">
-                
-                <img src="images/Conversationalworkflow.png" 
-                     alt="Web Application Workflow" 
-                     class="responsive-img" 
-                     style="border-radius: 20px;">
-                     
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/Retrieval Agent.png" alt="Retrieval Agent" onclick="openModal(this)">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/Passive.png" alt="Passive Agent" onclick="openModal(this)">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/RA-AA-FCA.png" alt="Food Counselor" onclick="openModal(this)">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/RA-AA-GCA.png" alt="Glucose Control" onclick="openModal(this)">
+                    </div>
+                    </div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+        <div id="imageModal" class="modal" onclick="closeModal()">
+            <span class="close-btn">&times;</span>
+            <img class="modal-content" id="expandedImg">
+            <div id="caption"></div>
+        </div>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="expandedImg">
+    <div id="caption"></div>
+</div>
 
         <section id="poster" class="reveal">
             <h2 class="section-title">Project Poster</h2>
@@ -140,12 +168,17 @@ Large Language Model (LLM), Blood Sugar Control, Conversational AI
             <div class="glass-card full-width-card" style="padding: 10px;">
                 
                 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px;">
-                    <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                        <source src="images/27p13i0032.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    
+                    <iframe 
+                        src="https://www.youtube.com/embed/3u1m58HpnV8?rel=0" 
+                        title="NSC 2025 Presentation"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    </iframe>
 
-                    </div>
+                </div>
 
                 <h4 style="margin-top: 20px; color: var(--primary);">NSC 2025 Finalist Presentation</h4>
             </div>
@@ -154,64 +187,95 @@ Large Language Model (LLM), Blood Sugar Control, Conversational AI
         <section id="activities" class="reveal">
             <h2 class="section-title">Activities & Achievements</h2>
             
-            <div class="achievement-grid">
-                
-                <div class="glass-card achievement-card">
-                    <a href="images/YRSS-CERT.pdf" target="_blank" class="img-link">
-                        <img src="images/Com-04_yrss.jpg" alt="YRSS Silver Prize" class="responsive-img" style="margin-bottom: 15px;">
-                    </a>
-                    <h4>YRSS 2025</h4>
-                    <p class="achieve-detail">Silver Prize Certificate</p>
-                </div>
+            <div class="swiper mySwiperAchievements">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide achievement-slide">
+                        <div class="achievement-card-modern">
+                            <a href="images/YRSS.jpg" target="_blank" class="img-link">
+                                <img src="images/YRSS.jpg" alt="YRSS Silver Prize">
+                            </a>
+                            <div class="card-overlay">
+                                <h4>YRSS 2025</h4>
+                                <p>Silver Prize Certificate</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="glass-card achievement-card">
-                    <a href="images/CertFinalist_punramon_032.pdf" target="_blank" class="img-link">
-                        <img src="images/CertFinalist_punramon_032_page-0001.jpg" alt="NSC Cert Punramon" class="responsive-img" style="margin-bottom: 15px;">
-                    </a>
-                    <h4>NSC 2025</h4>
-                    <p class="achieve-detail">Finalist (Punramon)</p>
-                </div>
+                    <div class="swiper-slide achievement-slide">
+                        <div class="achievement-card-modern">
+                            <a href="images/CertFinalist_punramon_032.pdf" target="_blank" class="img-link">
+                                <img src="images/CertFinalist_punramon_032_page-0001.jpg" alt="NSC Cert Punramon">
+                            </a>
+                            <div class="card-overlay">
+                                <h4>NSC 2025</h4>
+                                <p>Finalist (Punramon)</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="glass-card achievement-card">
-                    <a href="images/CertFinalist_siriyaporn_032.pdf" target="_blank" class="img-link">
-                        <img src="images/CertFinalist_siriyaporn_032_page-0001.jpg" alt="NSC Cert Siriyaporn" class="responsive-img" style="margin-bottom: 15px;">
-                    </a>
-                    <h4>NSC 2025</h4>
-                    <p class="achieve-detail">Finalist (Siriyaporn)</p>
-                </div>
+                    <div class="swiper-slide achievement-slide">
+                        <div class="achievement-card-modern">
+                            <a href="images/CertFinalist_siriyaporn_032.pdf" target="_blank" class="img-link">
+                                <img src="images/CertFinalist_siriyaporn_032_page-0001.jpg" alt="NSC Cert Siriyaporn">
+                            </a>
+                            <div class="card-overlay">
+                                <h4>NSC 2025</h4>
+                                <p>Finalist (Siriyaporn)</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="glass-card achievement-card">
-                    <a href="images/ticta_cert_punramon.pdf" target="_blank" class="img-link">
-                        <img src="images/ticta_cert_punramon.jpg" alt="TICTA Cert Punramon" class="responsive-img" style="margin-bottom: 15px;">
-                    </a>
-                    <h4>TICTA 2025</h4>
-                    <p class="achieve-detail">Finalist (Punramon)</p>
-                </div>
+                    <div class="swiper-slide achievement-slide">
+                        <div class="achievement-card-modern">
+                            <a href="images/NSC_Finalist.jpg" target="_blank" class="img-link">
+                                <img src="images/NSC_Finalist.jpg" alt="TICTA Cert Punramon">
+                            </a>
+                            <div class="card-overlay">
+                                <h4>NSC 2025</h4>
+                                <p>รอบนำเสนอโครงการ</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="glass-card achievement-card">
-                    <a href="images/ticta_cert_siriyaporn.pdf" target="_blank" class="img-link">
-                        <img src="images/ticta_cert_siriyaporn.jpg" alt="TICTA Cert Siriyaporn" class="responsive-img" style="margin-bottom: 15px;">
-                    </a>
-                    <h4>TICTA 2025</h4>
-                    <p class="achieve-detail">Finalist (Siriyaporn)</p>
-                </div>
+                    <div class="swiper-slide achievement-slide">
+                        <div class="achievement-card-modern">
+                            <a href="images/ticta_cert_siriyaporn.pdf" target="_blank" class="img-link">
+                                <img src="images/ticta_cert_siriyaporn.jpg" alt="TICTA Cert Siriyaporn">
+                            </a>
+                            <div class="card-overlay">
+                                <h4>TICTA 2025</h4>
+                                <p>Finalist</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="glass-card achievement-card">
-                    <a href="images/sti_cert_punramon.pdf" target="_blank" class="img-link">
-                        <img src="images/sti_cert_punramon.jpg" alt="STI Cert Punramon" class="responsive-img" style="margin-bottom: 15px;">
-                    </a>
-                    <h4>STI 2025</h4>
-                    <p class="achieve-detail">Certificate (Punramon)</p>
-                </div>
+                    <div class="swiper-slide achievement-slide">
+                        <div class="achievement-card-modern">
+                            <a href="images/STI_ESAN.jpg" target="_blank" class="img-link">
+                                <img src="images/STI_ESAN.jpg" alt="STI Cert Punramon">
+                            </a>
+                            <div class="card-overlay">
+                                <h4>STI 2025</h4>
+                                <p>รอบภาคตะวันออกเฉียงเหนือ</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="glass-card achievement-card">
-                    <a href="images/sti_cert_siriyaporn.pdf" target="_blank" class="img-link">
-                        <img src="images/sti_cert_siriyaporn.jpg" alt="STI Cert Siriyaporn" class="responsive-img" style="margin-bottom: 15px;">
-                    </a>
-                    <h4>STI 2025</h4>
-                    <p class="achieve-detail">Certificate (Siriyaporn)</p>
+                    <div class="swiper-slide achievement-slide">
+                        <div class="achievement-card-modern">
+                            <a href="images/STI_finals.jpg" target="_blank" class="img-link">
+                                <img src="images/STI_finals.jpg" alt="STI Cert Siriyaporn">
+                            </a>
+                            <div class="card-overlay">
+                                <h4>STI 2025</h4>
+                                <p>รอบแชมป์ชิงแชมป์</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-
+                <div class="swiper-pagination achievements-pagination"></div>
             </div>
         </section>
 
