@@ -50,7 +50,6 @@ body {
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 40px 20px;
 }
 
 /* Glassmorphism Card Style */
@@ -60,7 +59,6 @@ body {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    padding: 30px;
     box-shadow: var(--glass-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -127,15 +125,15 @@ header h1 {
     justify-content: center;
     align-items: flex-start;
     gap: 50px;
-    padding: 20px 20px 60px; /* เพิ่ม padding ล่างให้ห่างจาก Section ถัดไป */
     flex-wrap: wrap;
     text-align: center;
+    padding: 20px;
 }
 
 .content-item {
     width: 260px;
     transition: transform 0.3s ease;
-    padding: 10px;
+    padding: 20px;
 }
 
 .content-item:hover {
@@ -161,8 +159,8 @@ header h1 {
 
 /* สีเฉพาะของไอคอน (ตามรูปต้นฉบับ) */
 .icon-report { color: #555555; }      /* Report สีเทาเข้ม */
-.icon-listener { color: #ff9aa2; }    /* Listener สีเขียว */
-.icon-github { color: #333333; }      /* GitHub สีดำ */
+.icon-listener { color: #555555; }    /* Listener สีเขียว */
+.icon-github { color: #555555; }      /* GitHub สีดำ */
 
 /* Typography สำหรับ Main Content */
 .content-item h3 {
