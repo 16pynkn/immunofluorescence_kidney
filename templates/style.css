@@ -76,14 +76,18 @@ header {
 }
 
 .badge {
+    display: inline-block;       /* สำคัญ: สั่งให้กล่องหดขนาดเท่าข้อความ */
     background: var(--primary);
     color: white;
-    padding: 5px 15px;
+    padding: 5px 20px;           /* เพิ่ม padding ด้านข้างให้ดูสมดุลขึ้น */
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;           /* ปรับขนาดตัวอักษรให้อ่านง่ายขึ้นนิดนึง */
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
+    
+    margin: 0 auto 15px auto;    /* จัดกึ่งกลาง และเว้นระยะห่างด้านล่าง 15px ไม่ให้ติดหัวข้อเกินไป */
+    box-shadow: 0 4px 10px rgba(255, 154, 162, 0.3); /* (Optional) ใส่เงาเบาๆ ให้ดูมีมิติสวยขึ้น */
 }
 
 header h1 {
@@ -117,9 +121,7 @@ header h1 {
 
 .abstract-box h3 { color: var(--primary-dark); margin-bottom: 10px; }
 
-/* ---------------------------------------------------- */
-/* --- NEW: Main Content Icons (ส่วนที่เพิ่มใหม่) --- */
-/* ---------------------------------------------------- */
+/* --- Main Content Icons --- */
 .main-content-grid {
     display: flex;
     justify-content: center;
@@ -154,19 +156,17 @@ header h1 {
 }
 
 .content-item:hover .icon-minimal {
-    transform: scale(1.1); /* ขยายไอคอนนิดหน่อยตอน Hover */
+    transform: scale(1.1);
 }
 
-/* สีเฉพาะของไอคอน (ตามรูปต้นฉบับ) */
-.icon-report { color: #555555; }      /* Report สีเทาเข้ม */
-.icon-listener { color: #555555; }    /* Listener สีเขียว */
-.icon-github { color: #555555; }      /* GitHub สีดำ */
+.icon-report { color: #555555; }
+.icon-listener { color: #555555; }
+.icon-github { color: #555555; }
 
-/* Typography สำหรับ Main Content */
 .content-item h3 {
     font-family: 'Kanit', sans-serif;
     font-size: 1.4rem;
-    color: #ff9aa2; /* สีฟ้า Blue (ตามรูปต้นฉบับ) */
+    color: #ff9aa2;
     margin-bottom: 10px;
     font-weight: 600;
 }
@@ -185,7 +185,7 @@ header h1 {
     text-align: center;
     font-size: 2rem;
     color: var(--text-main);
-    margin: 60px 0 30px;
+    margin: 60px 0 10px;
     font-weight: 600;
 }
 
@@ -197,7 +197,7 @@ header h1 {
     font-size: 1.1rem;
 }
 
-/* --- Team Members (Single Row Layout) --- */
+/* --- Team Members --- */
 .team-row {
     display: flex;
     justify-content: center;
@@ -254,9 +254,18 @@ header h1 {
     display: block;
     cursor: pointer;
     transition: transform 0.3s;
+    text-decoration: none;
 }
 .img-link:hover {
     transform: scale(1.05);
+}
+/* ปรับแต่งตัวอักษรที่เป็นชื่อใต้รูป */
+.img-link .title {
+    color: #ffafbd;       /* สีชมพูตามที่ต้องการ */
+    font-weight: bold;    /* ตัวหนา */
+    margin-top: 15px;     /* เว้นระยะห่างจากรูปนิดหน่อยให้สวยงาม */
+    font-size: 1.1rem;    /* (ปรับขนาดได้ตามชอบ) */
+    text-decoration: none; /* ย้ำว่าไม่ต้องมีเส้นใต้ */
 }
 
 /* --- Workflow & Poster --- */
@@ -377,51 +386,89 @@ footer i { color: var(--primary); }
     transform: translateY(0);
 }
 
-/* --- Swiper --- */
+/* --- Swiper (แก้ไขล่าสุด: จัดระยะห่างให้พอดี ไม่เบียดกัน) --- */
 .swiper {
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    /* 1. เพิ่มพื้นที่ด้านล่างให้เยอะขึ้น เพื่อกันจุด Pagination ไปชนรูป */
+    padding-bottom: 80px; 
+    position: relative;
 }
 
 .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 300px; /* ขนาดรูปตอนยังไม่ Active */
-    height: 400px; /* ปรับความสูงตามต้องการ */
-    filter: blur(2px); /* เบลอรูปข้างๆ เล็กน้อย */
-    opacity: 0.6;
-    transition: all 0.3s;
-}
+    width: auto;
+    max-width: 800px;
+    height: auto !important;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* 2. ใช้ gap เพื่อดันชื่อกับรูปให้ห่างกัน 20px (แก้ปัญหาชื่อติดรูป) */
+    gap: 10px; 
 
-/* รูปที่อยู่ตรงกลาง (Active) */
-.swiper-slide-active {
-    filter: blur(0);
-    opacity: 1;
-    transform: scale(1.1); /* ขยายใหญ่ขึ้น */
-    z-index: 10;
+    opacity: 0.2;
+    transition: all 0.4s ease;
+    transform: scale(0.9);
 }
 
 .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 500px;
+    
+    object-fit: contain; /* โชว์ภาพครบ ไม่โดนตัด */
+    
     border-radius: 15px;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    background-color: transparent;
 }
 
-/* ปรับจุด Pagination ด้านล่างให้เป็นสีชมพู */
+/* สไตล์เมื่อรูปเลื่อนมาตรงกลาง (Active) */
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+}
+
+/* --- ส่วนชื่อภาพ (Workflow Label) แบบไม่มีกรอบ --- */
+.workflow-label {
+    display: block !important;
+    opacity: 1 !important;
+    order: -1;            /* อยู่ด้านบนของรูปภาพ */
+    width: 100%;
+    font-size: 1.1rem;    /* ปรับขนาดตัวอักษรตามต้องการ */
+    color: #333;          /* สีตัวอักษร */
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.5;
+    
+    /* --- ส่วนที่แก้ไขเพื่อเอากรอบออก --- */
+    background: transparent !important; /* เปลี่ยนพื้นหลังเป็นโปร่งใส */
+    padding: 15px;                         /* เอาระยะห่างขอบออก */
+    box-shadow: none !important;        /* เอาเงาออก */
+    margin:0px;                          /* ใช้ gap จากตัวแม่แทน */
+}
+
+/* --- จัดตำแหน่งจุด Pagination (จุดๆ) --- */
+.swiper-pagination {
+    /* 3. ดันจุดลงไปติดขอบล่างสุดของพื้นที่ที่เราเว้นไว้ */
+    bottom: 10px !important; 
+}
+
 .swiper-pagination-bullet-active {
     background-color: var(--primary) !important;
 }
 
-/* --- Modal (แก้ไขให้ไม่จม) --- */
+
+/* --- Modal --- */
 .modal {
     display: none; 
-    position: fixed; /* บังคับให้ลอยอยู่ติดหน้าจอเสมอ */
-    z-index: 9999; /* ชั้นสูงสุด ทับทุกอย่าง */
+    position: fixed;
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%; 
@@ -439,11 +486,10 @@ footer i { color: var(--primary); }
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* จัดกึ่งกลางจอเป๊ะๆ */
+    transform: translate(-50%, -50%);
     box-shadow: 0 0 30px rgba(255,255,255,0.2);
 }
 
-/* ปรับ Animation ตอนเด้งขึ้นมา */
 @keyframes zoomIn {
     from {
         transform: translate(-50%, -50%) scale(0.8); 
@@ -476,22 +522,21 @@ footer i { color: var(--primary); }
 /* --- Achievements Swiper (Modern Style) --- */
 .mySwiperAchievements {
     width: 100%;
-    padding: 40px 0 60px; /* เพิ่มพื้นที่ด้านล่างสำหรับ Pagination */
+    padding: 40px 0 60px;
 }
 
 .achievement-slide {
-    width: auto; /* ให้ความกว้างปรับตามเนื้อหา */
-    max-width: 800px; /* จำกัดความกว้างสูงสุด */
+    width: auto;
+    max-width: 800px;
     display: flex;
     justify-content: center;
     transition: all 0.3s ease;
 }
 
-/* การ์ดแบบใหม่ */
 .achievement-card-modern {
     position: relative;
     border-radius: 20px;
-    overflow: hidden; /* ตัดส่วนที่เกินออก */
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
@@ -499,10 +544,9 @@ footer i { color: var(--primary); }
     backdrop-filter: blur(10px);
 }
 
-/* Effect ตอนเอาเมาส์ชี้ */
 .achievement-card-modern:hover {
-    transform: translateY(-10px); /* ลอยขึ้น */
-    box-shadow: 0 20px 40px rgba(255, 154, 162, 0.3); /* เงาสีชมพูชัดขึ้น */
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 154, 162, 0.3);
 }
 
 .achievement-card-modern .img-link img {
@@ -512,14 +556,12 @@ footer i { color: var(--primary); }
     object-fit: cover;
 }
 
-/* ส่วน Overlay ข้อความ (หัวใจสำคัญของดีไซน์นี้) */
 .card-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 30px 20px 20px;
-    /* ไล่สีจากใสไปดำ เพื่อให้ข้อความสีขาวอ่านง่าย */
     background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
     color: white;
     text-align: center;
@@ -538,9 +580,8 @@ footer i { color: var(--primary); }
     opacity: 0.9;
 }
 
-/* ปรับแต่งจุด Pagination */
 .achievements-pagination {
-    bottom: 0 !important; /* บังคับให้อยู่ล่างสุด */
+    bottom: 0 !important;
 }
 
 .achievements-pagination .swiper-pagination-bullet {
