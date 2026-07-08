@@ -100,6 +100,7 @@ header {
 }
 
 /* Scanning line sweep — like an autofocus pass on a scope */
+/* ปิดไว้ก่อน (ยังไม่ใช้งาน) — เอา comment ออกเพื่อเปิดใช้อีกครั้ง
 header::after {
     content: "";
     position: absolute;
@@ -115,6 +116,7 @@ header::after {
     0%   { top: 0%; }
     100% { top: 100%; }
 }
+*/
 
 .badge {
     display: inline-flex;
@@ -140,13 +142,13 @@ header::after {
     border-radius: 50%;
     background: var(--signal);
     box-shadow: 0 0 6px 2px var(--signal-glow);
-    animation: pulse-dot 1.8s ease-in-out infinite;
+    /* animation: pulse-dot 1.8s ease-in-out infinite; ปิดไว้ก่อน (ยังไม่ใช้งาน) */
 }
 
-@keyframes pulse-dot {
+/* @keyframes pulse-dot {
     0%, 100% { opacity: 1; }
     50%      { opacity: 0.3; }
-}
+} */
 
 header h1 {
     font-family: var(--body);
